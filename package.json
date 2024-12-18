@@ -1,0 +1,14 @@
+{
+  "name": "astronomyapi-client",
+  "version": "1.0.0",
+  "description": "An interface to astronomyapi.com",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "date-fns": "^4.1.0",
+    "dotenv": "^16.4.5"
+  }
+}
