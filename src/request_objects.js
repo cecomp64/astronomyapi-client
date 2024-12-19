@@ -21,7 +21,22 @@ class ObserverParameters {
 
 class ViewParameters {
   constructor(args = {}) {
+    // For a star-chart, type can be one of:
+    //  constellation
+    //    Chart a constellation.  Must provide the 'constellation' parameter and
+    //    use the constellation enums at: https://docs.astronomyapi.com/requests-and-response/constellation-enums
+    //  area
+    //    Chart a region of the sky using RA and Dec coordinates
+
+    // For a moon-phase chart, type can be one of:
+    //  portrait-simple
+    //  landscape-simple
+    //
+    // Either of these optionally takes an orientation which is either:
+    //  south-up
+    //  north-up
     this.type = args.type || 'constellation';
+    this.orientation = args.orientation || 'north-up';
     this.parameters = {
       constellation: args.constellation || 'ori',
       position: {
@@ -32,6 +47,16 @@ class ViewParameters {
         zoom: args.zoom || 3
       }
     };
+  }
+}
+
+class StyleParameters {
+  constructor(args={}) {
+    this.moonStyle = args.moonStyle || 'default';  // default, sketch, or shaded
+    this.backgroundStyle = args.backgroundStyle || 'stars'; // stars or solid
+    this.backgroundColor = args.backgroundColor || 'black'; // Any of the "html" colors
+    this.headingColor = args.headingColor || 'white';
+    this.textColor = args.textColor || 'white';
   }
 }
 
@@ -114,4 +139,12 @@ class StarChartRequest extends BaseRequest {
   }
 }
 
-module.exports = { ObserverParameters, BaseRequest, PositionRequest, EventRequest, BodiesEnumRequest, ViewParameters, StarChartRequest }
+class MoonPhaseRequest extends BaseRequest {
+  constructor(appId = null, appSecret = null) {
+    super(appId, appSecret);
+    this.url = "/studio/moon-phase";
+    this.method = 'post';
+  }
+}
+
+module.exports = { ObserverParameters, BaseRequest, PositionRequest, EventRequest, BodiesEnumRequest, ViewParameters, StarChartRequest, StyleParameters, MoonPhaseRequest }
