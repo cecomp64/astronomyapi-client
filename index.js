@@ -5,8 +5,6 @@ async function main() {
   const today = new Date();
   const nextMonth = new Date(today.setMonth(today.getMonth() + 1));
   
-  console.log(nextMonth.toISOString().split('T')[0]); // Output: YYYY-MM-DD
-  
   // Make a test request
   pr = new PositionRequest();
   op = new ObserverParameters({to_date: format(nextMonth, 'yyyy-MM-dd')});
