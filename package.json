@@ -4,7 +4,7 @@
   "description": "An interface to astronomyapi.com",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "test": "node test/test.js"
   },
   "dependencies": {
     "axios": "^1.7.9",
