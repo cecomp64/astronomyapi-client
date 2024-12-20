@@ -1,5 +1,5 @@
 const { format } = require('date-fns');
-const { PositionRequest, ObserverParameters, EventRequest, BodiesEnumRequest, StarChartRequest, ViewParameters, MoonPhaseRequest, StyleParameters } = require('../src/request_objects');
+const { PositionRequest, ObserverParameters, EventRequest, BodiesEnumRequest, StarChartRequest, ViewParameters, MoonPhaseRequest, StyleParameters, SearchRequest, SearchParameters } = require('../src/request_objects');
 
 async function main() {
   const today = new Date();
@@ -30,6 +30,9 @@ async function main() {
     style: new StyleParameters(),
   }
   await mr.fetch(mr_params);
+
+  ser = new SearchRequest();
+  await ser.fetch(new SearchParameters({term: 'm 1'}))
 }
 
 main();

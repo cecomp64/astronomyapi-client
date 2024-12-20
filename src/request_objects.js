@@ -60,6 +60,19 @@ class StyleParameters {
   }
 }
 
+class SearchParameters {
+  constructor(args={}) {
+    this.term = args.term;
+    this.ra = args.ra;
+    this.dec = args.dec;
+    this.match_type = args.match_type || 'exact'; // fuzzy or exact
+    this.limit = args.limit || 10;
+    this.offset = args.offset;
+    this.order_by = args.order_by || 'name'; // name or NOTHIN'
+  }
+}
+
+
 class BaseRequest {
   data = null;
   response = null;
@@ -147,4 +160,22 @@ class MoonPhaseRequest extends BaseRequest {
   }
 }
 
-module.exports = { ObserverParameters, BaseRequest, PositionRequest, EventRequest, BodiesEnumRequest, ViewParameters, StarChartRequest, StyleParameters, MoonPhaseRequest }
+class SearchRequest extends BaseRequest {
+  constructor(appId = null, appSecret = null) {
+    super(appId, appSecret);
+    this.url = "/search";
+  }
+}
+
+module.exports = { ObserverParameters,
+  BaseRequest,
+  PositionRequest,
+  EventRequest,
+  BodiesEnumRequest,
+  ViewParameters,
+  StarChartRequest,
+  StyleParameters,
+  MoonPhaseRequest,
+  SearchParameters,
+  SearchRequest,
+}
