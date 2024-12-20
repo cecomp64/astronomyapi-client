@@ -5,18 +5,18 @@ in this API.  See https://docs.astronomyapi.com for details about the API and wh
 
 ## Defaults and Configuration
 
-You will need your own Application ID and Application key from astronomyapi.com.  See the Getting Started section for instructions on how to get this (it is free).  Once you have it, you'll need to either set the `APPLICATION_ID` and `APPLICATION_SECRET` environment variables, or pass them into the constructors for Request objects.
+You will need your own Application ID and Application key from astronomyapi.com.  See the Getting Started section for instructions on how to get this (it is free).  Once you have it, you'll need to either set the `ASTRONOMYAPI_APPLICATION_ID` and `ASTRONOMYAPI_APPLICATION_SECRET` environment variables, or pass them into the constructors for Request objects.
 
-This package uses some defaults for parameters that are based on environment variables.  You can set those defaults by setting the `DEFAULT*` environment variables below - either in a `.env` file or in your shell.  
+This package uses some defaults for parameters that are based on environment variables.  You can set those defaults by setting the `ASTRONOMYAPI_DEFAULT*` environment variables below - either in a `.env` file or in your shell.  
 
 Example:
 
 ```sh
-DEFAULT_LATITUDE=37.25626720108698
-DEFAULT_LONGITUDE=-121.94236276119172
-DEFAULT_ELEVATION=3
-APPLICATION_ID=your_id_from_astronomyapi.com
-APPLICATION_SECRET=your_secret_from_astronomyapi.com
+ASTRONOMYAPI_DEFAULT_LATITUDE=37.25626720108698
+ASTRONOMYAPI_DEFAULT_LONGITUDE=-121.94236276119172
+ASTRONOMYAPI_DEFAULT_ELEVATION=3
+ASTRONOMYAPI_APPLICATION_ID=your_id_from_astronomyapi.com
+ASTRONOMYAPI_APPLICATION_SECRET=your_secret_from_astronomyapi.com
 ```
 
 ## Parameter Helpers

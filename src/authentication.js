@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-function auth_header(appId = process.env.APPLICATION_ID, appSecret = process.env.APPLICATION_SECRET) {
+function auth_header(appId = process.env.ASTRONOMYAPI_APPLICATION_ID, appSecret = process.env.ASTRONOMYAPI_APPLICATION_SECRET) {
   const authString = btoa(`${appId}:${appSecret}`);
   return {'Authorization' : `Basic ${authString}`};
   //return `Authorization: Basic ${authString}`;

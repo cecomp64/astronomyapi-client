@@ -8,9 +8,9 @@ class ObserverParameters {
   constructor(args = {}) {
     const today = new Date();
     
-    this.latitude = parseFloat(args.latitude || process.env.DEFAULT_LATITUDE);
-    this.longitude = parseFloat(args.longitude || process.env.DEFAULT_LONGITUDE);
-    this.elevation = args.elevation || process.env.DEFAULT_ELEVATION;
+    this.latitude = parseFloat(args.latitude || process.env.ASTRONOMYAPI_DEFAULT_LATITUDE);
+    this.longitude = parseFloat(args.longitude || process.env.ASTRONOMYAPI_DEFAULT_LONGITUDE);
+    this.elevation = args.elevation || process.env.ASTRONOMYAPI_DEFAULT_ELEVATION;
     this.from_date = args.from_date || format(today, 'yyyy-MM-dd');
     this.to_date = args.to_date || format(today, 'yyyy-MM-dd');
     this.time = args.time || format(today, 'HH:mm:ss');
